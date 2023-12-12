@@ -1,0 +1,47 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("NEXT_PUBLIC_NEON_DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid())
+  username String @unique
+  imageUrl String @db.Text
+  externalUserId String @unique
+  bio String? @db.Text
+
+  stream Stream?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Stream {
+  id String @id @default(uuid())
+  name String @db.Text
+  thumbnailUrl String? @db.Text
+
+  ingressId String? @unique
+  serverUrl String? @db.Text
+  streamKey String? @db.Text
+
+  isLive Boolean @default(false)
+  isChatEnabled Boolean @default(true)
+  isChatDelayed Boolean @default(false)
+  isChatFollowersOnly Boolean @default(false)
+
+  userId String @unique
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([ingressId])
+  // @@fulltext([name])
+}
