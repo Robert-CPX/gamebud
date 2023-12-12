@@ -1,4 +1,5 @@
 import React from "react"
+import Logo from "./_components/Logo"
 
 const AuthRootLayout = ({
   children
@@ -6,7 +7,8 @@ const AuthRootLayout = ({
   children: React.ReactNode
 }) => {
   return (
-    <div className="row-center">
+    <div className="flex-center flex-col gap-3">
+      <Logo />
       {children}
     </div>
   )
