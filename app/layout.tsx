@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Silkscreen } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark } from "@clerk/themes";
-import ThemeProvider from '@/components/ThemeProvider'
+import ThemeProvider from '@/components/shared/ThemeProvider'
 import '../styles/globals.css'
 
 const silkScreen = Silkscreen({ subsets: ['latin'], weight: ['400', '700'] })
