@@ -2,7 +2,7 @@ import { Navbar, LeftSidebar, RightSidebar } from "@/components/shared"
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main>
+    <main className="relative pt-[5rem]">
       <Navbar />
       <div>
         <LeftSidebar />

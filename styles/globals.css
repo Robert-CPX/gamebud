@@ -75,7 +75,7 @@
 
 @layer utilities {
   .flex-center {
-    @apply h-full flex justify-center items-center;
+    @apply flex items-center;
   }
 }
 
