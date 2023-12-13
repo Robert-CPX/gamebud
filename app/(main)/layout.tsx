@@ -4,10 +4,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="relative pt-[5rem]">
       <Navbar />
-      <div>
+      <div className="flex">
         <LeftSidebar />
         {children}
-        <RightSidebar />
       </div>
     </main>
   )
