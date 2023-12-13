@@ -1,6 +1,6 @@
 'use server'
 
-import { CreateUserParams, UpdateUserParams } from "./shared"
+import { CreateUserParams, UpdateUserParams, GetRecommendedUsersParams } from "./shared"
 import { db } from "../db"
 import { Prisma } from "@prisma/client"
 
@@ -41,6 +41,21 @@ export const deleteUser = async (userId: string) => {
   try {
     const deletedUser = await db.user.delete({ where: { externalUserId: userId } })
     return deletedUser
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
+
+export const getRecommendedUsers = async (params: GetRecommendedUsersParams) => {
+  try {
+    const users = await db.user.findMany({
+      take: params.limit,
+      orderBy: {
+        createdAt: params.factor === 'new' ? 'desc' : 'asc'
+      }
+    })
+    return users
   } catch (error) {
     console.log(error)
     throw error

@@ -12,3 +12,8 @@ export type UpdateUserParams = {
   username: string
   imageUrl: string
 }
+
+export type GetRecommendedUsersParams = {
+  limit: number
+  factor: 'new' | 'old'
+}
