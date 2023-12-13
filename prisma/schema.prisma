@@ -1,16 +1,18 @@
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
+  previewFeatures = ["driverAdapters", "postgresqlExtensions"]
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("NEXT_PUBLIC_NEON_DATABASE_URL")
+  url      = env("NEON_DATABASE_URL")
+  extensions = [citext]
 }
 
 model User {
   id String @id @default(uuid())
   username String @unique
+  email String @unique @db.Citext
   imageUrl String @db.Text
   externalUserId String @unique
   bio String? @db.Text
