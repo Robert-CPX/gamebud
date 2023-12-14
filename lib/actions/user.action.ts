@@ -3,6 +3,7 @@
 import { CreateUserParams, UpdateUserParams, GetRecommendedUsersParams } from "./shared"
 import { db } from "../db"
 import { Prisma } from "@prisma/client"
+import { currentUser } from "@clerk/nextjs";
 
 export const createUser = async (userData: CreateUserParams) => {
   try {
@@ -47,10 +48,41 @@ export const deleteUser = async (userId: string) => {
   }
 }
 
+export const getSelf = async () => {
+  try {
+    const user = await currentUser();
+    if (!user) {
+      throw new Error('User not found')
+    }
+    const dbUser = await db.user.findUnique({ where: { externalUserId: user.id } })
+    if (!dbUser) {
+      throw new Error('User not found')
+    }
+    return dbUser
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
+
 export const getRecommendedUsers = async (params: GetRecommendedUsersParams) => {
   try {
+
+    let currentUserId: string
+    try {
+      const user = await getSelf()
+      currentUserId = user.id
+    } catch {
+      currentUserId = "";
+    }
+
     const users = await db.user.findMany({
       take: params.limit,
+      where: {
+        NOT: {
+          id: currentUserId
+        }
+      },
       orderBy: {
         createdAt: params.factor === 'new' ? 'desc' : 'asc'
       }

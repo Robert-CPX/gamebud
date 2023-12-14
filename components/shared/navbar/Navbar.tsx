@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 const Navbar = () => {
   return (
-    <nav className='flex-center fixed top-0 h-[5rem] w-full justify-between gap-8 p-4'>
+    <nav className='flex-center fixed top-0 h-[5rem] w-full justify-between gap-8 border-b border-border bg-background p-4'>
       <Link href='/' className='flex-center gap-4 hover:invert-[0.1]'>
         <Image src='/icons/invader.svg' alt='invader' width={46} height={46} />
         <div className='flex flex-col max-lg:hidden'>
