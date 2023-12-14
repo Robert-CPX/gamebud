@@ -26,3 +26,12 @@ export type CreateStreamParams = {
   isChatEnabled: boolean
   isChatFollowersOnly: boolean
 }
+
+export type UpdateStreamSettingParams = {
+  name?: string
+  imageUrl?: string
+
+  isLive?: boolean
+  isChatEnabled?: boolean
+  isChatFollowersOnly?: boolean
+}

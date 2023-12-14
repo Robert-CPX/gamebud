@@ -57,7 +57,7 @@ export const getSelf = async () => {
   try {
     const user = await currentUser();
     if (!user) {
-      throw new Error('User not found')
+      throw new Error('current user not found')
     }
     const dbUser = await db.user.findUnique({ where: { externalUserId: user.id } })
     if (!dbUser) {
@@ -72,7 +72,6 @@ export const getSelf = async () => {
 
 export const getRecommendedUsers = async (params: GetRecommendedUsersParams) => {
   try {
-
     let currentUserId: string
     try {
       const user = await getSelf()
@@ -80,7 +79,6 @@ export const getRecommendedUsers = async (params: GetRecommendedUsersParams) => 
     } catch {
       currentUserId = "";
     }
-
     const users = await db.user.findMany({
       take: params.limit,
       where: {
