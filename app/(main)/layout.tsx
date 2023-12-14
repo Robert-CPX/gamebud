@@ -1,4 +1,4 @@
-import { Navbar, LeftSidebar, RightSidebar } from "@/components/shared"
+import { Navbar, LeftSidebar } from "@/components/shared"
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
