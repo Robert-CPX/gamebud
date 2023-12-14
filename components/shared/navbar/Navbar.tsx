@@ -27,7 +27,7 @@ const Navbar = () => {
           <Link href='/' className='flex invert-[0.4] hover:invert-0'>
             <Clapperboard className="mr-2 h-6 w-6 max-lg:hidden" /> Dashboard
           </Link>
-          <UserButton />
+          <UserButton afterSignOutUrl='/' />
         </SignedIn>
         <SignedOut>
           <Link href="/sign-in">Sign in</Link>

@@ -1,4 +1,4 @@
-import LeftSidebar from "./leftSidebar/LeftSidebar";
+import Sidebar from "./leftSidebar/Sidebar";
 import Navbar from "./navbar/Navbar";
 
-export { LeftSidebar, Navbar }
+export { Sidebar, Navbar }

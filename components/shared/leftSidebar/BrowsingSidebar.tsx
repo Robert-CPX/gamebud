@@ -1,5 +1,5 @@
 'use client'
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../../ui/button'
 import { ArrowRightFromLine, ArrowLeftFromLine, Video } from 'lucide-react'
 import { getRecommendedUsers } from '@/lib/actions/user.action'
@@ -7,7 +7,7 @@ import { User } from '@/lib/db'
 import Image from 'next/image'
 import { useSidebarStore } from '@/store/useSidebar'
 
-const LeftSidebar = () => {
+const BrowsingSidebar = () => {
   const expanded = useSidebarStore((state) => state.expanded)
   const onExpand = useSidebarStore((state) => state.onExpand)
   const onCollapse = useSidebarStore((state) => state.onCollapse)
@@ -55,4 +55,4 @@ const LeftSidebar = () => {
   )
 }
 
-export default LeftSidebar
+export default BrowsingSidebar
