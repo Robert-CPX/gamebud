@@ -23,7 +23,7 @@ const LeftSidebar = () => {
   }, [])
 
   return (
-    <aside className={`fixed h-full ${expanded ? "w-[16rem]" : "w-[4rem]"} border-r border-border bg-background max-lg:w-[4rem]`}>
+    <aside className={`relative h-full ${expanded ? "w-[16rem]" : "w-[4rem]"} border-r border-border bg-background max-lg:w-[4rem]`}>
       <div className='flex-center justify-between p-2 max-lg:hidden'>
         <p className={`text-sm ${!expanded && 'hidden'}`}>For you</p>
         <Button onClick={expanded ? onCollapse : onExpand} className='bg-transparent invert hover:invert-[0.9]'>
