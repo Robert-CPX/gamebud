@@ -17,3 +17,12 @@ export type GetRecommendedUsersParams = {
   limit: number
   factor: 'new' | 'old'
 }
+
+export type CreateStreamParams = {
+  name: string
+  imageUrl: string
+
+  isLive: boolean
+  isChatEnabled: boolean
+  isChatFollowersOnly: boolean
+}

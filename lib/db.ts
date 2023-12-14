@@ -12,3 +12,4 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export type User = Prisma.UserCreateInput;
+export type Stream = Prisma.StreamCreateInput;

@@ -13,6 +13,11 @@ export const createUser = async (userData: CreateUserParams) => {
       username: userData.username,
       imageUrl: userData.imageUrl,
       externalUserId: userData.userId,
+      stream: {
+        create: {
+          name: `${userData.username}'s stream`,
+        }
+      }
     }
     const newUser = await db.user.create({ data: user })
     return newUser

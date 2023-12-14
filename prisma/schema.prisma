@@ -51,7 +51,6 @@ model Stream {
 
   @@index([userId])
   @@index([ingressId])
-  // @@fulltext([name])
 }
 
 model Follow {

@@ -31,7 +31,7 @@ const LeftSidebar = () => {
         </Button>
       </div>
       <div className={`flex flex-col p-2 ${!expanded && 'items-center gap-4'} max-lg:hidden`}>
-        <p className={`${!expanded && 'hidden'}`}>Recommended Channel</p>
+        <p className={`${!expanded && 'hidden'} ${getRecommendedUsers.length == 0 && 'hidden'}`}>Recommended Channel</p>
         <Video className={`h-4 w-4 ${expanded && 'hidden'}`} />
         <ul className='flex flex-col gap-4'>
           {users.map((user) => (
