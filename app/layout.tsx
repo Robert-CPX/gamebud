@@ -3,6 +3,7 @@ import { Silkscreen } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark } from "@clerk/themes";
 import ThemeProvider from '@/context/ThemeProvider'
+import { Toaster } from 'sonner'
 import '../styles/globals.css'
 
 const silkScreen = Silkscreen({ subsets: ['latin'], weight: ['400', '700'] })
@@ -27,6 +28,7 @@ export default function RootLayout({
             storageKey='gamebud-theme'
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>

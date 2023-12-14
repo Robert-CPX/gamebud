@@ -8,7 +8,7 @@ export const userSideBars = [
 ] as const;
 
 export const chatSettings = [
-  { title: 'Enable Chat', key: 'isChatEnabled' },
-  { title: 'Delay chat', key: 'isChatDelayed' },
-  { title: 'Must be following to chat', key: 'isChatFollowersOnly' },
+  { title: 'Enable Chat', field: 'isChatEnabled' },
+  { title: 'Delay chat', field: 'isChatDelayed' },
+  { title: 'Must be following to chat', field: 'isChatFollowersOnly' },
 ] as const;

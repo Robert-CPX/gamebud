@@ -11,9 +11,10 @@ const Page = async () => {
       <div className="flex flex-col gap-4">
         {chatSettings.map((setting) => (
           <ChatSettingItem
-            key={setting.key}
+            key={setting.field}
+            field={setting.field}
             title={setting.title}
-            enabled={stream[setting.key]}
+            enabled={stream[setting.field]}
           />
         ))}
       </div>
