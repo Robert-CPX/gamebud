@@ -28,7 +28,7 @@ export const ServerURL = ({ value }: Prop) => {
   return (
     <div className="flex-center h-[5rem] justify-between rounded-lg bg-background px-6 invert-[0.05]">
       <p className="w-[13rem] text-primary">Server URL</p>
-      <Input disabled placeholder="Server URL" className="rounded-md bg-input text-white invert focus-visible:ring-0 focus-visible:ring-offset-0" />
+      <Input disabled value={value ?? ""} placeholder="Server URL" className="rounded-md bg-input text-white invert focus-visible:ring-0 focus-visible:ring-offset-0" />
       <Button className="bg-transparent text-sm invert" disabled={isCopied || !value} onClick={handleCopy}>
         <Icon />
       </Button>
@@ -57,7 +57,7 @@ export const StreamKey = ({ value }: Prop) => {
       <p className="w-[12rem] text-primary">Stream Key</p>
       <div className="flex w-full flex-col items-start gap-2">
         <div className="flex-center w-full">
-          <Input disabled type={show ? "text" : "password"} placeholder="Stream key" className="w-full rounded-md invert focus-visible:ring-0 focus-visible:ring-offset-0" />
+          <Input disabled value={value ?? ""} type={show ? "text" : "password"} placeholder="Stream key" className="w-full rounded-md invert focus-visible:ring-0 focus-visible:ring-offset-0" />
           <Button disabled={isCopied || !value} className="bg-transparent invert" onClick={handleCopy}>
             <Icon />
           </Button>
