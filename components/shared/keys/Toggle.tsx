@@ -9,7 +9,7 @@ const Toggle = () => {
       className="rounded-md bg-primary text-sm"
       onClick={() => { createIngress(0) }}
     >
-      Generate
+      Generate Connection
     </Button>
   )
 }

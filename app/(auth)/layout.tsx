@@ -1,5 +1,5 @@
 import React from "react"
-import Logo from "./_components/Logo"
+import Logo from "@/components/shared/auth/Logo"
 
 const AuthRootLayout = ({
   children
