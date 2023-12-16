@@ -77,6 +77,20 @@
   .flex-center {
     @apply flex items-center;
   }
+  .separate {
+    @apply flex items-center bg-background invert-[0.2];
+    &::before,
+    &::after {
+      @apply flex-1 h-px bg-border;
+      content: "";
+    }
+    &::before {
+      margin-right: 0.5rem;
+    }
+    &::after {
+      margin-left: 0.5rem;
+    }
+  }
 }
 
 @layer base {

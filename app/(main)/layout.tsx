@@ -1,4 +1,5 @@
 import { Navbar, Sidebar } from "@/components/shared"
+import SideChat from "@/components/shared/SideChat"
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,6 +8,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex">
         <Sidebar />
         {children}
+        <SideChat />
       </div>
     </main>
   )

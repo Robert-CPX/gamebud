@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from '../../ui/button'
 import { ArrowRightFromLine, ArrowLeftFromLine, Video } from 'lucide-react'
 import { getRecommendedUsers } from '@/lib/actions/user.action'
-import { User } from '@/lib/db'
+import { UserInSidebar } from '@/lib/db'
 import Image from 'next/image'
 import { useSidebarStore } from '@/store/useSidebar'
 
@@ -12,7 +12,7 @@ const BrowsingSidebar = () => {
   const onExpand = useSidebarStore((state) => state.onExpand)
   const onCollapse = useSidebarStore((state) => state.onCollapse)
 
-  const [users, setUsers] = useState<User[]>([])
+  const [users, setUsers] = useState<UserInSidebar[]>([])
 
   useEffect(() => {
     const getUsers = async () => {
@@ -42,8 +42,8 @@ const BrowsingSidebar = () => {
                   <p>{user.username}</p>
                   <p>{user.username}</p>
                 </div>
-                <div className='flex-center h-full gap-1 bg-cyan-800'>
-                  <div className='h-3 w-3 rounded-full bg-red-700' />
+                <div className='flex-center h-full gap-1'>
+                  <div className={`h-3 w-3 rounded-full ${user.stream?.isLive ? "bg-red-700" : "bg-gray-500"}`} />
                   <p>51.1K</p>
                 </div>
               </div>

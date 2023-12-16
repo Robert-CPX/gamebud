@@ -70,6 +70,28 @@ export const getSelf = async () => {
   }
 }
 
+export const getUser = async (userId: string) => {
+  try {
+    const dbUser = await db.user.findUnique({
+      where: { externalUserId: userId },
+      include: {
+        stream: {
+          select: {
+            isLive: true
+          }
+        }
+      }
+    })
+    if (!dbUser) {
+      throw new Error('User not found')
+    }
+    return dbUser
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
+
 export const getRecommendedUsers = async (params: GetRecommendedUsersParams) => {
   try {
     let currentUserId: string
@@ -84,6 +106,13 @@ export const getRecommendedUsers = async (params: GetRecommendedUsersParams) => 
       where: {
         NOT: {
           id: currentUserId
+        }
+      },
+      include: {
+        stream: {
+          select: {
+            isLive: true
+          }
         }
       },
       orderBy: {

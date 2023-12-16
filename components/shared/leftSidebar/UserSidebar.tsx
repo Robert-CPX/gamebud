@@ -27,7 +27,7 @@ const UserSidebar = () => {
       <div className={`flex flex-col p-2 ${!expanded && 'items-center gap-4'} max-lg:hidden`}>
         <ul className='flex flex-col gap-4'>
           {userSideBars.map((item) => (
-            <Link href={`/${user.id}${item.path}`} key={item.name} className={`flex-center w-full gap-4 rounded-md px-4 py-2 hover:bg-background hover:invert-[0.05] ${pathname == item.path && 'bg-background invert-[0.05]'}`}>
+            <Link href={`/${user.id}${item.path}`} key={item.name} className={`flex-center w-full gap-4 rounded-md px-4 py-2 hover:bg-background hover:invert-[0.05] ${pathname == `/${user.id}${item.path}` && 'bg-background invert-[0.05]'}`}>
               <item.icon className='h-4 w-4' />
               <p className={`${!expanded && 'hidden'}`}>{item.name}</p>
             </Link>

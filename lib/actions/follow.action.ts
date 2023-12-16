@@ -44,12 +44,12 @@ export const getFollowers = async () => {
 }
 
 // check if user exist, then check if already following
-export const isFollowing = async (followerId: string) => {
+export const isFollowingUser = async (followerId: string) => {
   try {
     const currentUser = await getSelf()
     const otherUser = await db.user.findUnique({
       where: {
-        id: followerId
+        externalUserId: followerId
       }
     })
     if (!otherUser) {
@@ -68,7 +68,7 @@ export const isFollowing = async (followerId: string) => {
   }
 }
 //get myself, check if other user exist, check if already following, if not, create follow
-export const follow = async (followerId: string) => {
+export const followUser = async (followerId: string) => {
   try {
     const otherUser = await db.user.findUnique({
       where: {
@@ -79,7 +79,7 @@ export const follow = async (followerId: string) => {
     const currentUser = await getSelf()
     if (otherUser.id === currentUser.id) { throw new Error('Cannot follow yourself') }
 
-    const alreadyFollowed = await isFollowing(otherUser.id)
+    const alreadyFollowed = await isFollowingUser(otherUser.id)
     if (alreadyFollowed) {
       throw new Error('Already following')
     }
@@ -101,7 +101,7 @@ export const follow = async (followerId: string) => {
 }
 
 // check if other user exist, check if already following, if yes, delete follow
-export const unfollow = async (followerId: string) => {
+export const unfollowUser = async (followerId: string) => {
   try {
     const otherUser = await db.user.findUnique({
       where: {

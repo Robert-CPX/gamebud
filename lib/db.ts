@@ -11,5 +11,5 @@ if (process.env.NODE_ENV !== "production") {
   globalThis.prisma = db;
 }
 
-export type User = Prisma.UserCreateInput;
+export type UserInSidebar = { stream: { isLive: boolean } | null } & Prisma.UserCreateManyInput;
 export type Stream = Prisma.StreamCreateInput;
